@@ -17,7 +17,17 @@
         </ul>
     </nav>
 
-    <h1>Home page</h1>
-    
+ <!-- What we're doing here is defining a block, or an area, that we can inject content into
+from other pages.  
+The difference between the percent sign and the double curly bracket notation that we've
+used before, is that the double curly brackets contain an 'expression', which is outputting
+something either onto the screen, or in this case, into our href.
+The curly bracket and percentage are for statements that control the flow of our template, such
+as a for-loop, if-statement, or this block element.-->
+    {% block content %}
+    {% endblock content %}
+
+<!--next we are going to delete everything but the contents of the other pages...
+    they will display just the same-->
 </body>
 </html>
