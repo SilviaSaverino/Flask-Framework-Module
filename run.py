@@ -1,5 +1,5 @@
 import os
-from flask import Flask
+from flask import Flask, render_template
 
 # create an instance of the above and store it in a var called app.
 # The first argument of the Flask class, is the name of
@@ -17,7 +17,7 @@ app = Flask(__name__)
 # the "Hello, World" text.
 @app.route("/")
 def index():
-    return "Hello World"
+    return render_template("index.html")
 
 
 # The word 'main' wrapped in double-underscores (__main__) is the name of
