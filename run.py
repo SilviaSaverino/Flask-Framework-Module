@@ -20,6 +20,17 @@ def index():
     return render_template("index.html")
 
 
+@app.route("/about")
+def about():
+    return render_template("about.html")
+
+
+@app.route("/contact")
+def contact():
+    return render_template("contact.html")
+
+
+
 # The word 'main' wrapped in double-underscores (__main__) is the name of
 # the default module in Python.
 # This is the first one that we run, so if this has not been imported,
