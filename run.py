@@ -1,6 +1,9 @@
 import os
 import json
-from flask import Flask, render_template
+from flask import Flask, render_template, request, flash
+
+if os.path.exists("env.py"):
+    import env
 
 # create an instance of the above and store it in a var called app.
 # The first argument of the Flask class, is the name of
@@ -48,9 +51,12 @@ def about_member(member_name):
 # The second 'member' is the member object we created above on line 40.
 
 
-@app.route("/contact")
+@app.route("/contact", methods=["GET", "POST"])
 def contact():
-    return render_template("contact.html", page_title="Contact" )
+    if request.method == 'POST':
+        print(request.form.get("name"))
+        print(request.form["email"])
+    return render_template("contact.html", page_title="Contact")
 
 
 @app.route("/careers")
