@@ -43,7 +43,9 @@ def about_member(member_name):
         for obj in data:
             if obj["url"] == member_name:
                 member = obj
-    return "<h1>" + member["name"] + "</h1>"
+    return render_template("members.html", member=member) 
+# This first 'member' is the variable name being passed through into our html file.
+# The second 'member' is the member object we created above on line 40.
 
 
 @app.route("/contact")
