@@ -1,4 +1,5 @@
 import os
+import json
 from flask import Flask, render_template
 
 # create an instance of the above and store it in a var called app.
@@ -22,7 +23,16 @@ def index():
 
 @app.route("/about")
 def about():
-    return render_template("about.html", page_title="About")
+    data = []
+    # We need to have Python open the JSON file in order to read it.
+    # This is called a 'with' block.
+    # with open("data/company.json", "r") as json_data: Python is opening the JSON file as "read-only",
+    # and assigning the contents of the file to a new variable we've created called json_data.
+    # We need to set our empty 'data' list to equal the parsed JSON data that we've sent through.
+    with open("data/company.json", "r") as json_data:
+        data = json.load(json_data)
+
+    return render_template("about.html", page_title="About", company=data)
 
 
 @app.route("/contact")
